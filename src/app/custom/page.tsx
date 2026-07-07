@@ -387,36 +387,63 @@ export default function CustomConfiguratorPage() {
                   </div>
                 </div>
 
-                {/* Drodowns options */}
+                {/* Custom Options Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
                   
-                  {/* Glass Thickness */}
-                  <div className="space-y-1.5">
+                  {/* Glass Thickness (Radio Buttons) */}
+                  <div className="space-y-1.5 col-span-1">
                     <label className="text-xs font-semibold text-salon-dark/70 uppercase tracking-wider block">Ketebalan Kaca</label>
-                    <select
-                      value={specs.glassThickness}
-                      onChange={(e) => handleSpecChange("glassThickness", e.target.value)}
-                      className="w-full px-3.5 py-3 bg-salon-cream border border-gold-500/15 rounded-xl text-xs focus:outline-none focus:border-gold-500"
-                    >
-                      <option value="5mm">5 mm Tempered (Standard, +IDR 0)</option>
-                      <option value="8mm">8 mm Tempered (+IDR 150.000)</option>
-                      <option value="10mm">10 mm Tempered (+IDR 300.000)</option>
-                    </select>
+                    <div className="flex flex-col gap-2">
+                      {[
+                        { val: "5mm", label: "5 mm Tempered (Standard, +IDR 0)" },
+                        { val: "8mm", label: "8 mm Tempered (+IDR 150.000)" },
+                        { val: "10mm", label: "10 mm Tempered (+IDR 300.000)" }
+                      ].map((item) => (
+                        <label key={item.val} className={`flex items-center gap-2.5 px-3.5 py-3 rounded-xl border text-xs cursor-pointer transition-all ${
+                          specs.glassThickness === item.val ? "bg-gold-500/5 border-gold-500 text-gold-700 font-medium" : "border-gold-500/15 hover:bg-gold-500/5 bg-salon-cream"
+                        }`}>
+                          <input
+                            type="radio"
+                            name="glassThickness"
+                            value={item.val}
+                            checked={specs.glassThickness === item.val}
+                            onChange={() => handleSpecChange("glassThickness", item.val as any)}
+                            className="accent-gold-500"
+                          />
+                          <span>{item.label}</span>
+                        </label>
+                      ))}
+                    </div>
                   </div>
 
-                  {/* LED lights option */}
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-salon-dark/70 uppercase tracking-wider block">Warna Lampu LED</label>
-                    <select
-                      value={specs.ledOption}
-                      onChange={(e) => handleSpecChange("ledOption", e.target.value)}
-                      className="w-full px-3.5 py-3 bg-salon-cream border border-gold-500/15 rounded-xl text-xs focus:outline-none focus:border-gold-500"
-                    >
-                      <option value="none">Tanpa LED Lighting (+IDR 0)</option>
-                      <option value="white_led">Cool White LED (+IDR 250.000)</option>
-                      <option value="warm_led">Warm Golden LED (+IDR 250.000)</option>
-                      <option value="rgb_led">RGB Color Neon LED (+IDR 400.000)</option>
-                    </select>
+                  {/* Empty cell for block alignment balance on desktop */}
+                  <div className="hidden sm:block"></div>
+
+                  {/* LED lights interactive cards */}
+                  <div className="space-y-1.5 sm:col-span-2">
+                    <label className="text-xs font-semibold text-salon-dark/70 uppercase tracking-wider block">Pencahayaan Lampu LED</label>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                      {[
+                        { val: "none", label: "Tanpa LED", sub: "+IDR 0" },
+                        { val: "white_led", label: "Cool White", sub: "+IDR 250k" },
+                        { val: "warm_led", label: "Warm White", sub: "+IDR 250k" },
+                        { val: "rgb_led", label: "RGB Neon", sub: "+IDR 400k" }
+                      ].map((item) => (
+                        <button
+                          key={item.val}
+                          type="button"
+                          onClick={() => handleSpecChange("ledOption", item.val as any)}
+                          className={`flex flex-col items-center justify-center p-3.5 rounded-xl border text-center transition-all cursor-pointer ${
+                            specs.ledOption === item.val
+                              ? "bg-gold-500/10 border-gold-500 text-gold-700 font-semibold shadow-sm shadow-gold-500/5"
+                              : "border-gold-500/15 bg-salon-cream hover:bg-gold-500/5 text-salon-dark/75"
+                          }`}
+                        >
+                          <span className="text-xs font-semibold">{item.label}</span>
+                          <span className="text-[10px] text-gold-600 font-mono mt-1">{item.sub}</span>
+                        </button>
+                      ))}
+                    </div>
                   </div>
 
                 </div>

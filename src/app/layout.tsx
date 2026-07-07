@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Montserrat } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import { AppProvider } from "@/context/AppContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,9 +12,9 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-const montserrat = Montserrat({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-montserrat",
+  variable: "--font-inter",
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${playfair.variable} ${montserrat.variable} h-full scroll-smooth`}
+      className={`${playfair.variable} ${inter.variable} h-full scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-salon-cream text-salon-dark antialiased">
         <AppProvider>

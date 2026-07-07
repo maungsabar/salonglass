@@ -105,7 +105,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Feature 1 */}
             <div className="glass-panel p-8 rounded-2xl hover:border-gold-500/30 transition-all duration-300 text-center space-y-4 hover:-translate-y-1">
               <div className="mx-auto w-12 h-12 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-600">
