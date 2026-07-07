@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold-50: #fdfaf2;
+  --color-gold-100: #f9f1d8;
+  --color-gold-200: #f3e2b2;
+  --color-gold-300: #ebcf86;
+  --color-gold-400: #e2b75a;
+  --color-gold-500: #d4af37; /* Primary Luxury Gold */
+  --color-gold-600: #b89326;
+  --color-gold-700: #91711b;
+  --color-gold-800: #6b5214;
+  --color-gold-900: #46350d;
+  
+  --color-salon-dark: #12100e;    /* Rich Charcoal/Obsidian */
+  --color-salon-charcoal: #1c1a17; /* Soft Dark Neutral */
+  --color-salon-cream: #faf6f0;   /* Elegant Warm Cream */
+  --color-salon-warm: #f3ebe1;    /* Deep Cream Accent */
+  --color-salon-blush: #fdf2f2;   /* Soft Rose/Blush Pink */
+  --color-salon-glass: rgba(253, 251, 247, 0.7);
+
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-montserrat);
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.5s infinite linear;
+  --animate-fade-in: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+:root {
+  --background: #faf6f0;
+  --foreground: #12100e;
+  
+  /* Font fallbacks */
+  --font-playfair: 'Playfair Display', Georgia, serif;
+  --font-montserrat: 'Montserrat', system-ui, sans-serif;
+}
+
+.dark {
+  --background: #12100e;
+  --foreground: #faf6f0;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-montserrat), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism custom styling helper */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.dark .glass-panel {
+  background: rgba(28, 26, 23, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+/* Gold text gradient styling */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #e2b75a 0%, #d4af37 50%, #91711b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Premium Gold border gradient */
+.gold-border-gradient {
+  border-image: linear-gradient(to right, #d4af37, #f3e2b2, #91711b) 1;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #faf6f0;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4af37;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b89326;
+}
