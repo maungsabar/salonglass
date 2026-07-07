@@ -28,7 +28,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full transition-all duration-300 glass-panel border-b border-gold-500/10">
+    <nav className="sticky top-0 z-50 w-full transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-zinc-200/50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
@@ -106,7 +106,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer Overlay */}
       {isOpen && (
-        <div className="md:hidden animate-fade-in glass-panel border-t border-gold-500/10">
+        <div className="md:hidden animate-fade-in bg-white border-t border-zinc-200/50">
           <div className="space-y-1 px-4 pb-6 pt-3">
             {navLinks.map((link) => (
               <Link

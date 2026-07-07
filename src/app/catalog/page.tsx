@@ -69,7 +69,7 @@ export default function CatalogPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Panel: Filter Controls */}
-          <div className="lg:col-span-3 glass-panel p-6 sm:p-8 rounded-2xl space-y-6 lg:sticky lg:top-24">
+          <div className="lg:col-span-3 bg-white border border-zinc-200/60 p-6 sm:p-8 rounded-xl shadow-md shadow-zinc-100/50 space-y-6 lg:sticky lg:top-24">
             <div className="flex items-center justify-between pb-4 border-b border-gold-500/10">
               <span className="font-serif text-lg font-bold text-salon-dark flex items-center gap-2">
                 <SlidersHorizontal className="h-4.5 w-4.5 text-gold-500" /> Filter
@@ -208,7 +208,7 @@ export default function CatalogPage() {
                 {filteredProducts.map((product) => (
                   <div 
                     key={product.id} 
-                    className="group glass-panel rounded-xl overflow-hidden flex flex-col hover:border-gold-500/30 transition-all duration-300 hover:shadow-lg"
+                    className="group bg-white border border-zinc-200/60 rounded-xl overflow-hidden flex flex-col hover:border-gold-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-zinc-200/50"
                   >
                     {/* Product Image container */}
                     <div className="relative aspect-[4/5] bg-salon-dark overflow-hidden">
